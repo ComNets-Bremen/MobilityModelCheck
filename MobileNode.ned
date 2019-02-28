@@ -14,10 +14,10 @@ module MobileNode
 
         // unique node identifier
         int nodeID;
-		
+
         // mobility model used
         string mobilityType = default("StationaryMobility");
-		
+
         // icon
         @display("i=device/palm2;bgb=250,340");
 
@@ -29,3 +29,4 @@ module MobileNode
         // mobility
         mobility: <mobilityType> like IMobility;
 }
+

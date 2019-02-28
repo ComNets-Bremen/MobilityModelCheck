@@ -1,3 +1,11 @@
+//
+// The model that implements the UDG model to check
+// connectivity to other nodes in the neighbourhood
+//
+// @author : Asanga Udugama (adu@comnets.uni-bremen.de)
+// @date   : 02-may-2017
+//
+//
 
 #ifndef __MOBILITYMODELCHECK_WIRELESSINTERFACE_H_
 #define __MOBILITYMODELCHECK_WIRELESSINTERFACE_H_
