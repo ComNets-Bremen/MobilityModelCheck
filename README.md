@@ -23,7 +23,7 @@ The list given below provides the procedure on how to install, compile and run I
 
 7. Select the MobilityModelCheck folder (the top most folder of the OPSLite project) and run using - `Run -> Run As -> OMNeT++ Simulation`
 
-8. Use the generated statistics and log entries to compute statistics - a separater parser maybe required to parse the log file to extract required stats (such as number of contacts, contact durations, etc.)
+8. Use the generated statistics and log (in `results` folder) to compute statistics - a separater parser maybe required to parse the log file to extract required stats (such as number of contacts, contact durations, etc.)
 
 
 
@@ -41,7 +41,7 @@ The models generate the following statistics using OMNeT++ statistics mechanism.
 
 ## Log Entries
 
-The generated log contains the following information. These can be parsed to obtain statistics.
+If the simulations are run in the `Cmdenv` mode (not the `Qtenv` mode), a log is generated. The generated log contains the following information. These can be parsed to obtain statistics.
 
 1. Start of a contact - `xxxx says: Contact with yyyy started at nnnn seconds`
    - xxxx - node name
