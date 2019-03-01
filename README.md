@@ -35,7 +35,7 @@ The models generate the following statistics using OMNeT++ statistics mechanism.
 
 2. Contact Durations - The duration of a contact after the contact ends, of every node.  
 
-3. Neighbourhood Sizes - the number of neighbours in wireless range of every node, every second.
+3. Neighbourhood Sizes - The number of neighbours in wireless range of every node, every second.
 
 
 
@@ -44,27 +44,27 @@ The models generate the following statistics using OMNeT++ statistics mechanism.
 The generated log contains the following information. These can be parsed to obtain statistics.
 
 1. Start of a contact - `xxxx says: Contact with yyyy started at nnnn seconds`
-   a. xxxx - node name
-   b. yyyy - contacted node name
-   c. nnnn - seconds
+   - xxxx - node name
+   - yyyy - contacted node name
+   - nnnn - seconds
 
 2. End of a contact - `xxxx says: Contact with yyyy ended at nnnn seconds - Contact duration was dddd seconds`
-   a. xxxx - node name
-   b. yyyy - contacted node name
-   c. nnnn - seconds
-   d. dddd - seconds
+   - xxxx - node name
+   - yyyy - contacted node name
+   - nnnn - seconds
+   - dddd - seconds
 
 3. The tags ANS (accumulated neighbourhood size) and TNRT (total neighbourhood reporting times) - `ssss xxxx ANS pppp TNRT rrrr`
-   a. ssss - simulation time
-   b. xxxx - node name
-   c. pppp - accumulated neighbourhood size
-   d. rrrr - total neighbourhood reporting times
+   - ssss - simulation time
+   - xxxx - node name
+   - pppp - accumulated neighbourhood size
+   - rrrr - total neighbourhood reporting times
 
 4. The tags ACD (accumulated contact durations) and TNC (total number of contacts up to now) - `ssss xxxx ACD bbbb TNC cccc`
-   a. ssss - simulation time
-   b. xxxx - node name
-   c. bbbb - accumulated contact durations
-   d. cccc - total number of contacts up to now
+   - ssss - simulation time
+   - xxxx - node name
+   - bbbb - accumulated contact durations
+   - cccc - total number of contacts up to now
 
 
 
