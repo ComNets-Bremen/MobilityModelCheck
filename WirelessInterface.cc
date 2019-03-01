@@ -86,6 +86,14 @@ void WirelessInterface::handleMessage(cMessage *msg)
         }
         emit(neighbourhoodSizeSignalID, newNeighbourNodeInfoList.size());
 
+        if (newNeighbourNodeInfoList.size() > 0) {
+            sumNeighbourhoodSize += newNeighbourNodeInfoList.size();
+            totNeighbourhoodReportingTimes++;
+            // ANS = accumilated neighbourhood size
+            // TNRT = total neighbourhood reporting times
+            EV_INFO << " " << simTime() << " " << ownName << " ANS " << sumNeighbourhoodSize << " TNRT " << totNeighbourhoodReportingTimes << "\n";
+        }
+
         // check and update left neighbours
         list<NodeInfo*>::iterator iteratorOldNeighbourNodeInfo = currentNeighbourNodeInfoList.begin();
         while (iteratorOldNeighbourNodeInfo != currentNeighbourNodeInfoList.end()) {
@@ -105,12 +113,20 @@ void WirelessInterface::handleMessage(cMessage *msg)
 
             if (!found) {
                 double contactDuration = simTime().dbl() - oldNodeInfo->contactStartTime;
-                EV_DEBUG << ownName << " says: Contact with " << oldNodeInfo->nodeName << " ended at " << simTime().dbl() << " seconds - Contact duration was " << contactDuration << " seconds \n";
+                EV_INFO << ownName << " says: Contact with " << oldNodeInfo->nodeName << " ended at " << simTime().dbl() << " seconds - Contact duration was " << contactDuration << " seconds \n";
                 oldNodeInfo->contactStarted = false;
                 oldNodeInfo->contactStartTime = 0.0;
                 currentNeighbourNodeInfoList.remove(oldNodeInfo);
                 emit(contactMadeSignalID, 1);
                 emit(contactDurationSignalID, contactDuration);
+
+                if (contactDuration > 0.0) {
+                    sumContactDurations += contactDuration;
+                    numContacts++;
+                    // ACD = accumilated contact durations
+                    // TNC = total number of contacts upto now
+                    EV_INFO << " " << simTime() << " " << ownName << " ACD " << sumContactDurations << " TNC " << numContacts << "\n";
+                }
             }
 
             if (!found) {
@@ -138,7 +154,7 @@ void WirelessInterface::handleMessage(cMessage *msg)
             }
 
             if (!found) {
-                EV_DEBUG << ownName << " says: Contact with " << newNodeInfo->nodeName << " started at " << simTime().dbl() << " seconds \n";
+                EV_INFO << ownName << " says: Contact with " << newNodeInfo->nodeName << " started at " << simTime().dbl() << " seconds \n";
                 newNodeInfo->contactStarted = true;
                 newNodeInfo->contactStartTime = simTime().dbl();
                 currentNeighbourNodeInfoList.push_back(newNodeInfo);

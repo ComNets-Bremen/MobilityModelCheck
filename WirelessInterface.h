@@ -17,6 +17,11 @@
 using namespace omnetpp;
 using namespace std;
 
+int numContacts = 0;
+double sumContactDurations = 0.0;
+int sumNeighbourhoodSize = 0;
+int totNeighbourhoodReportingTimes = 0;
+
 class WirelessInterface : public cSimpleModule
 {
   protected:
