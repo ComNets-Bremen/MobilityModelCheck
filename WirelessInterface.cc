@@ -81,6 +81,7 @@ void WirelessInterface::handleMessage(cMessage *msg)
             double r = wirelessRange * wirelessRange;
             if (l <= r) {
                 newNeighbourNodeInfoList.push_back(nodeInfo);
+                EV_INFO << " " << simTime() << " " << ownName << " neighbour " << (newNeighbourNodeInfoList.size() - 1) << " " << nodeInfo->nodeName << "\n";
             }
             iteratorNeighbourNodeInfo++;
         }
@@ -113,7 +114,7 @@ void WirelessInterface::handleMessage(cMessage *msg)
 
             if (!found) {
                 double contactDuration = simTime().dbl() - oldNodeInfo->contactStartTime;
-                EV_INFO << " " << ownName << " says: Contact with " << oldNodeInfo->nodeName << " ended at " << simTime().dbl() << " seconds - Contact duration was " << contactDuration << " seconds \n";
+                EV_INFO << " " << simTime() << " " << ownName << " says: Contact with " << oldNodeInfo->nodeName << " ended at " << simTime().dbl() << " seconds - Contact duration was " << contactDuration << " seconds \n";
                 oldNodeInfo->contactStarted = false;
                 oldNodeInfo->contactStartTime = 0.0;
                 currentNeighbourNodeInfoList.remove(oldNodeInfo);
@@ -154,7 +155,7 @@ void WirelessInterface::handleMessage(cMessage *msg)
             }
 
             if (!found) {
-                EV_INFO << " " << ownName << " says: Contact with " << newNodeInfo->nodeName << " started at " << simTime().dbl() << " seconds \n";
+                EV_INFO << " " << simTime() << " " << ownName << " says: Contact with " << newNodeInfo->nodeName << " started at " << simTime().dbl() << " seconds \n";
                 newNodeInfo->contactStarted = true;
                 newNodeInfo->contactStartTime = simTime().dbl();
                 currentNeighbourNodeInfoList.push_back(newNodeInfo);

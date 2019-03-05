@@ -66,6 +66,12 @@ If the simulations are run in the `Cmdenv` mode (not the `Qtenv` mode), a log is
    - bbbb - accumulated contact durations
    - cccc - total number of contacts up to now
 
+5. A list of the neighbours of every node, every second - `ssss xxxx neighbour iiii yyyy`
+   - ssss - simulation time
+   - xxxx - node name
+   - iiii - list index
+   - yyyy - node in neighbourhood (node in contact)
+
 
 
 ## Questions or Comments
