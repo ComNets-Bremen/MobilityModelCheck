@@ -1,6 +1,6 @@
 # MobilityModelCheck
 
-A simple set of OMNeT++ models to evaluate INET based mobility models. They are used to configure and run existing or new mobility models in the INET framework to determine the performance of those mobility models in terms of contacts made, contact durations, etc. The models use unit disc graph (UDG) mechanism to determine the contacts between nodes (i.e., wireless range).
+A simple set of OMNeT++ models to evaluate INET based mobility models. They are used to configure and run existing or new mobility models in the INET framework to determine the performance of those mobility models in terms of contacts made, contact durations, etc. The models use unit disc graphs (UDG) to determine the contacts between nodes assuming that they are connected using a peer-to-peer wireless communication technology such as WiFi Direct, Wireless Adhoc or Bluetooth. The parameter `wirelessRange` determines the range of the wireless communication technology.
 
 
 ## Procedure
@@ -37,6 +37,10 @@ The models generate the following statistics using OMNeT++ statistics mechanism.
 
 3. Neighbourhood Sizes - The number of neighbours in wireless range of every node, every second.
 
+Additionally, the logged information can be used to generate other statistics such as the following.
+
+- `Average Neighbourhood Size = ANS / TNRT` (using the final values of `ANS` and `TNRT`)
+- `Average Contact Duration   = ACD / TNC ` (using the final values of `ACD` and `TNC`)
 
 
 ## Log Entries
