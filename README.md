@@ -44,39 +44,38 @@ The models generate the following statistics using OMNeT++ statistics mechanism.
 If the simulations are run in the `Cmdenv` mode (not the `Qtenv` mode), a log is generated. The generated log contains the following information. These can be parsed to obtain statistics.
 
 1. Start of a contact - `xxxx says: Contact with yyyy started at nnnn seconds`
-   - xxxx - node name
-   - yyyy - contacted node name
-   - nnnn - seconds
+   - `xxxx` - node name
+   - `yyyy` - contacted node name
+   - `nnnn` - seconds
 
 2. End of a contact - `xxxx says: Contact with yyyy ended at nnnn seconds - Contact duration was dddd seconds`
-   - xxxx - node name
-   - yyyy - contacted node name
-   - nnnn - seconds
-   - dddd - seconds
+   - `xxxx` - node name
+   - `yyyy` - contacted node name
+   - `nnnn` - seconds
+   - `dddd` - seconds
 
 3. The tags ANS (accumulated neighbourhood size) and TNRT (total neighbourhood reporting times) - `ssss xxxx ANS pppp TNRT rrrr`
-   - ssss - simulation time
-   - xxxx - node name
-   - pppp - accumulated neighbourhood size
-   - rrrr - total neighbourhood reporting times
+   - `ssss` - simulation time
+   - `xxxx` - node name
+   - `pppp` - accumulated neighbourhood size
+   - `rrrr` - total neighbourhood reporting times
 
 4. The tags ACD (accumulated contact durations) and TNC (total number of contacts up to now) - `ssss xxxx ACD bbbb TNC cccc`
-   - ssss - simulation time
-   - xxxx - node name
-   - bbbb - accumulated contact durations
-   - cccc - total number of contacts up to now
+   - `ssss` - simulation time
+   - `xxxx` - node name
+   - `bbbb` - accumulated contact durations
+   - `cccc` - total number of contacts up to now
 
 5. A list of the neighbours of every node, every second - `ssss xxxx neighbour iiii yyyy`
-   - ssss - simulation time
-   - xxxx - node name
-   - iiii - list index
-   - yyyy - node in neighbourhood (node in contact)
+   - `ssss` - simulation time
+   - `xxxx` - node name
+   - `iiii` - list index
+   - `yyyy` - node in neighbourhood (node in contact)
 
 Following is an extract of a log.
 
 
 ```
-
 ...
 INFO 3066 node[3] neighbour 1 node[42]
 INFO 3066 node[3] ANS 253644 TNRT 120738
@@ -97,7 +96,6 @@ INFO 3066 node[5] neighbour 3 node[39]
 INFO 3066 node[5] ANS 253653 TNRT 120740
 INFO 3066 node[6] neighbour 0 node[27]
 ...
-
 ```
 
 
