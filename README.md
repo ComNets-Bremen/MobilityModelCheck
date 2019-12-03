@@ -23,13 +23,13 @@ The list given below provides the procedure on how to install, compile and run I
 
 7. Select the MobilityModelCheck folder (the top most folder of the OPSLite project) and run using - `Run -> Run As -> OMNeT++ Simulation`
 
-8. Use the generated statistics and log (in `results` folder) to compute statistics - a separater parser maybe required to parse the log file to extract required stats (such as number of contacts, contact durations, etc.)
+8. Check the generated statistics and the node paths file
 
 
 
 ## Statistics Generated
 
-The models generate the following statistics using OMNeT++ statistics mechanism.
+The models generate the following statistics using OMNeT++ statistics mechanism at node-level and network-level.
 
 1. Contacts Made - The number of contacts made  by every node.
 
@@ -37,78 +37,23 @@ The models generate the following statistics using OMNeT++ statistics mechanism.
 
 3. Neighbourhood Sizes - The number of neighbours in wireless range of every node, every second.
 
-Additionally, the logged information can be used to generate other statistics such as the following.
+There are 2 categories of the above 2 statistics. Immediate statistics and Periodic statistics
 
-- `Average Neighbourhood Size = ANS / TNRT` (using the final values of `ANS` and `TNRT`)
-- `Average Contact Duration   = ACD / TNC ` (using the final values of `ACD` and `TNC`)
+- Immediate statistics are the statistics that are generated on every change of the monitored variable
+- Periodic statistics are the statistics that are generated periodically where the interval is configured using `statReportingInterval` parameter
 
-
-## Log Entries
-
-If the simulations are run in the `Cmdenv` mode (not the `Qtenv` mode), a log is generated. The generated log contains the following information. These can be parsed to obtain statistics.
-
-1. Start of a contact - `xxxx says: Contact with yyyy started at nnnn seconds`
-   - `xxxx` - node name
-   - `yyyy` - contacted node name
-   - `nnnn` - seconds
-
-2. End of a contact - `xxxx says: Contact with yyyy ended at nnnn seconds - Contact duration was dddd seconds`
-   - `xxxx` - node name
-   - `yyyy` - contacted node name
-   - `nnnn` - seconds
-   - `dddd` - seconds
-
-3. The tags ANS (accumulated neighbourhood size) and TNRT (total neighbourhood reporting times) - `ssss xxxx ANS pppp TNRT rrrr`
-   - `ssss` - simulation time
-   - `xxxx` - node name
-   - `pppp` - accumulated neighbourhood size
-   - `rrrr` - total neighbourhood reporting times
-
-4. The tags ACD (accumulated contact durations) and TNC (total number of contacts up to now) - `ssss xxxx ACD bbbb TNC cccc`
-   - `ssss` - simulation time
-   - `xxxx` - node name
-   - `bbbb` - accumulated contact durations
-   - `cccc` - total number of contacts up to now
-
-5. A list of the neighbours of every node, every second - `ssss xxxx neighbour iiii yyyy`
-   - `ssss` - simulation time
-   - `xxxx` - node name
-   - `iiii` - list index
-   - `yyyy` - node in neighbourhood (node in contact)
-
-Following is an extract of a log.
+An important point to remember is that, though the 2 categories present the same variables, the statistic values of each category vary due to the way the statistics are computed. 
 
 
-```
-...
-INFO 3066 node[3] neighbour 1 node[42]
-INFO 3066 node[3] ANS 253644 TNRT 120738
-INFO 3066 node[3] says: Contact with node[42] started at 3066 seconds 
-INFO 3066 node[4] neighbour 0 node[1]
-INFO 3066 node[4] neighbour 1 node[18]
-INFO 3066 node[4] neighbour 2 node[28]
-INFO 3066 node[4] neighbour 3 node[41]
-INFO 3066 node[4] neighbour 4 node[49]
-INFO 3066 node[4] ANS 253649 TNRT 120739
-INFO 3066 node[4] says: Contact with node[39] ended at 3066 seconds - Contact duration was 26 seconds 
-INFO 3066 node[4] ACD 251520 TNC 10339
-INFO 3066 node[4] says: Contact with node[41] started at 3066 seconds 
-INFO 3066 node[5] neighbour 0 node[23]
-INFO 3066 node[5] neighbour 1 node[28]
-INFO 3066 node[5] neighbour 2 node[32]
-INFO 3066 node[5] neighbour 3 node[39]
-INFO 3066 node[5] ANS 253653 TNRT 120740
-INFO 3066 node[6] neighbour 0 node[27]
-...
-```
+
+## Node Paths
+
+If `nodePathRecorded` and `nodePathFileName` are configured, the silumation will log the x and y coordinates of each node to a text file in a CSV format.
+
 
 
 ## Questions or Comments
 
-If you have any comments or suggestions, we will be very glad to hear them. Please write to us using any of the e-mail adresses below.
+If you have any comments or suggestions, we will be very glad to hear them. Please write to us using the e-mail adresses ops@comnets.uni-bremen.de.
 
-  - Asanga Udugama (adu@comnets.uni-bremen.de)
-  - Anna Förster (anna.foerster@comnets.uni-bremen.de)
-  - Vishnupriya Parimalam (vp@fb1.uni-bremen.de)
-  - Jens Dede (jd@comnets.uni-bremen.de)
 

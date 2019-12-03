@@ -21,6 +21,15 @@ module MobileNode
         // icon
         @display("i=device/palm2;bgb=250,340");
 
+        // statistics
+        @statistic[contactMadeMovingAvg](source=mean(contactMade);record=count,stats,vector);
+        @statistic[contactDurationMovingAvg](source=mean(contactDuration);record=count,stats,vector);
+        @statistic[neighbourhoodSizeMovingAvg](source=mean(neighbourhoodSize);record=count,stats,vector);
+
+        @statistic[periodicCountOfContactsMade](source=periodicCountOfContactsMade;record=stats,vector);
+        @statistic[periodicAvgOfContactDuration](source=periodicAvgOfContactDuration;record=stats,vector);
+        @statistic[periodicAvgOfNeighbourhoodSizes](source=periodicAvgOfNeighbourhoodSizes;record=stats,vector);
+
     submodules:
 
          // wifi adhoc interface
